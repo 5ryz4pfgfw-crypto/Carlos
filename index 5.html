@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Laboratorio dental Carlos Javier Mellado | Prótesis dentales en Almería</title>
+<meta name="description" content="Laboratorio de prótesis dental en Almería con más de 35 años de experiencia. Prótesis de resina, férulas Michigan, férulas de contención, protectores deportivos y reparaciones. Tel. 950 23 30 05.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1C2633; --muted:#5F6E80; --paper:#FFFFFF; --gypsum:#EDF0F2; --line:#D6DDE3;
+  --wax:#BE2F4A; --wax-soft:#F7E1E6; --stone:#3F6E96; --stone-soft:#DCE8F2;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"Figtree", "Segoe UI", system-ui, -apple-system, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --ink:#E7ECF1; --muted:#9DACBC; --paper:#18212C; --gypsum:#111820; --line:#2C3947;
+    --wax:#F07D93; --wax-soft:#3A1F27; --stone:#8DB7DC; --stone-soft:#1D2E3E;
+    color-scheme: dark;
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{font-family:var(--body);font-size:17px;line-height:1.6;color:var(--ink);background:var(--gypsum);padding-bottom:calc(72px + env(safe-area-inset-bottom,0px))}
+@media (min-width:860px){body{padding-bottom:0}}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--stone);outline-offset:2px;border-radius:6px}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+h1,h2,h3{font-family:var(--display);line-height:1.08;letter-spacing:-.02em}
+h1{font-size:clamp(2.3rem,6vw,4.1rem);font-weight:800}
+h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;margin-bottom:.6rem}
+h3{font-size:1.2rem;font-weight:700}
+p{max-width:62ch}
+.lead{font-size:1.15rem;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font:600 1rem var(--body);padding:.85rem 1.3rem;border-radius:999px;border:2px solid var(--ink);background:var(--ink);color:var(--paper);text-decoration:none;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.wax{background:var(--wax);border-color:var(--wax);color:#fff}
+@media (prefers-color-scheme: dark){.btn.wax{color:#1C0E12}}
+
+/* Cabecera */
+header{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+.bar{display:flex;align-items:center;gap:1rem;min-height:64px}
+.logo{display:flex;flex-direction:column;text-decoration:none;line-height:1.05}
+.logo b{font-family:var(--display);font-size:1.35rem;font-weight:800;letter-spacing:-.03em}
+.logo span{font-size:.8rem;color:var(--muted)}
+.aud{margin-left:auto;display:flex;background:var(--gypsum);border:1px solid var(--line);border-radius:999px;padding:3px}
+.aud button{font:600 .9rem var(--body);border:0;background:transparent;color:var(--muted);padding:.45rem .9rem;border-radius:999px;cursor:pointer}
+.aud button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.bar .call{display:none}
+@media (min-width:860px){.bar .call{display:inline-flex;padding:.6rem 1.1rem}}
+
+body[data-aud="clinica"] .solo-paciente,
+body[data-aud="paciente"] .solo-clinica{display:none!important}
+
+/* Hero */
+.hero{padding:clamp(2.5rem,7vw,5rem) 0 3rem}
+.hero .grid{display:grid;gap:2.5rem;align-items:center}
+@media (min-width:860px){.hero .grid{grid-template-columns:1.1fr .9fr}}
+.hero h1{margin-bottom:1.1rem}
+.hero .acts{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.6rem}
+.since{margin-top:1.8rem;font-size:.95rem;color:var(--muted);border-left:3px solid var(--wax);padding-left:.8rem}
+
+/* Guía de color */
+.shade{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:1.4rem}
+.shade-top{display:flex;align-items:center;gap:1.2rem}
+.tooth{width:120px;flex:none}
+.shade-name{font-family:var(--display);font-size:3rem;font-weight:800;line-height:1}
+.shade-desc{color:var(--muted);font-size:.95rem}
+.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin-top:1.2rem}
+.tabs fieldset{border:0;display:contents}
+.tab{border:2px solid transparent;background:var(--gypsum);border-radius:12px;padding:.45rem .2rem .35rem;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:.2rem;font:600 .8rem var(--body);color:var(--ink)}
+.tab i{display:block;width:22px;height:30px;border-radius:9px 9px 12px 12px;box-shadow:inset 0 -6px 8px rgba(0,0,0,.08),inset 0 0 0 1px rgba(0,0,0,.08)}
+.tab[aria-pressed="true"]{border-color:var(--wax);background:var(--wax-soft)}
+.shade small{display:block;margin-top:.9rem;color:var(--muted);font-size:.85rem}
+
+section{padding:clamp(3rem,7vw,5rem) 0}
+.alt{background:var(--paper);border-block:1px solid var(--line)}
+
+/* Trabajos */
+.works{display:grid;gap:0;margin-top:2rem;border-top:2px solid var(--ink)}
+@media (min-width:760px){.works{grid-template-columns:1fr 1fr;column-gap:3rem}}
+.work{padding:1.2rem 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr auto;gap:.2rem 1rem}
+.work p{grid-column:1/-1;color:var(--muted);font-size:.98rem}
+.work .for{font-size:.8rem;font-weight:600;color:var(--stone);background:var(--stone-soft);border-radius:999px;padding:.15rem .6rem;align-self:start;white-space:nowrap}
+
+/* Orden de trabajo */
+.order{display:grid;gap:2rem;margin-top:2rem}
+@media (min-width:900px){.order{grid-template-columns:1.25fr .75fr;align-items:start}}
+.form{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:1.4rem;display:grid;gap:1.1rem}
+.row2{display:grid;gap:1rem}
+@media (min-width:560px){.row2{grid-template-columns:1fr 1fr}}
+label{display:grid;gap:.3rem;font-weight:600;font-size:.92rem}
+input,select,textarea{font:400 1rem var(--body);color:var(--ink);background:var(--gypsum);border:1px solid var(--line);border-radius:10px;padding:.7rem .8rem;width:100%}
+textarea{min-height:80px;resize:vertical}
+.odo-head{display:flex;justify-content:space-between;align-items:baseline;gap:.5rem;flex-wrap:wrap}
+.odo-head b{font-size:.92rem}
+.quick{display:flex;gap:.4rem;flex-wrap:wrap}
+.quick button{font:500 .8rem var(--body);border:1px solid var(--line);background:var(--gypsum);color:var(--ink);border-radius:999px;padding:.25rem .65rem;cursor:pointer}
+.odo{display:grid;gap:.35rem;margin-top:.6rem;overflow-x:auto}
+.arch{display:grid;grid-template-columns:repeat(16,minmax(19px,1fr));gap:3px}
+.arch button{font:600 .68rem var(--body);height:34px;border:1px solid var(--line);background:var(--gypsum);color:var(--muted);cursor:pointer;padding:0}
+.arch.up button{border-radius:4px 4px 10px 10px}
+.arch.down button{border-radius:10px 10px 4px 4px}
+.arch button:nth-child(8){margin-right:4px}
+.arch button[aria-pressed="true"]{background:var(--wax);border-color:var(--wax);color:#fff}
+.mid{height:1px;background:var(--line);margin:2px 0}
+.ticket{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:1.4rem;position:sticky;top:84px}
+.ticket h3{margin-bottom:.8rem}
+.ticket dl{display:grid;grid-template-columns:auto 1fr;gap:.35rem .9rem;font-size:.95rem}
+.ticket dt{color:var(--muted)}
+.ticket dd{font-weight:600;word-break:break-word}
+.ticket .btn{width:100%;margin-top:1.2rem}
+.ticket small{display:block;color:var(--muted);font-size:.82rem;margin-top:.7rem}
+.warn{color:var(--wax);font-size:.88rem;min-height:1.2em}
+
+/* Paciente */
+.help{display:grid;gap:2rem;margin-top:2rem}
+@media (min-width:860px){.help{grid-template-columns:.9fr 1.1fr;align-items:start}}
+.probs{display:grid;gap:.6rem}
+.probs button{text-align:left;font:600 1.05rem var(--body);color:var(--ink);background:var(--paper);border:2px solid var(--line);border-radius:16px;padding:1rem 1.1rem;cursor:pointer}
+.probs button[aria-pressed="true"]{border-color:var(--wax);background:var(--wax-soft)}
+.answer{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:1.5rem}
+.answer ol{margin:1rem 0 0 1.2rem;display:grid;gap:.6rem}
+.answer .btn{margin-top:1.3rem}
+.empty{color:var(--muted)}
+
+/* Sobre */
+.about{display:grid;gap:2rem}
+@media (min-width:860px){.about{grid-template-columns:1fr 1fr;align-items:start}}
+.facts{display:grid;gap:1rem}
+.fact{border-left:3px solid var(--stone);padding-left:1rem}
+.fact b{display:block;font-family:var(--display);font-size:1.15rem}
+.fact span{color:var(--muted)}
+
+/* Contacto */
+.contact{display:grid;gap:1.5rem;margin-top:1.8rem}
+@media (min-width:760px){.contact{grid-template-columns:repeat(3,1fr)}}
+.ccard{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:1.3rem}
+.ccard h3{margin-bottom:.4rem}
+.ccard a{font-weight:600}
+.ccard p{color:var(--muted)}
+
+footer{padding:2rem 0 2.5rem;color:var(--muted);font-size:.88rem;border-top:1px solid var(--line);background:var(--paper)}
+
+/* Barra móvil */
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--paper);border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:.6rem;padding:.6rem 1rem calc(.6rem + env(safe-area-inset-bottom,0px))}
+.mbar .btn{padding:.7rem .5rem}
+@media (min-width:860px){.mbar{display:none}}
+</style>
+</head>
+<body data-aud="clinica">
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#inicio"><b>Mellado</b><span>Laboratorio de prótesis dental</span></a>
+    <div class="aud" role="group" aria-label="Ver la web como">
+      <button type="button" data-aud="clinica" aria-pressed="true">Soy clínica</button>
+      <button type="button" data-aud="paciente" aria-pressed="false">Soy paciente</button>
+    </div>
+    <a class="btn call" href="tel:+34950233005">950 23 30 05</a>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero">
+    <div class="wrap grid">
+      <div>
+        <div class="solo-clinica">
+          <h1>Tu laboratorio de prótesis en Almería.</h1>
+          <p class="lead">Prótesis de resina, férulas Michigan, férulas de contención, protectores deportivos y reparaciones. Mándanos la orden por WhatsApp con piezas y color, y te confirmamos el plazo.</p>
+          <div class="acts">
+            <a class="btn wax" href="#orden">Preparar orden de trabajo</a>
+            <a class="btn ghost" href="#trabajos">Ver trabajos</a>
+          </div>
+        </div>
+        <div class="solo-paciente">
+          <h1>¿Se te ha roto la dentadura?</h1>
+          <p class="lead">Somos un laboratorio de prótesis dental en Almería. Arreglamos y ajustamos dentaduras, y trabajamos con tu dentista cuando necesitas una nueva.</p>
+          <div class="acts">
+            <a class="btn wax" href="#ayuda">Dime qué le pasa</a>
+            <a class="btn ghost" href="tel:+34950233005">Llamar</a>
+          </div>
+        </div>
+        <p class="since">Más de 35 años fabricando prótesis a mano en la Avenida Federico García Lorca.</p>
+      </div>
+
+      <div class="shade" aria-labelledby="shade-title">
+        <div class="shade-top">
+          <svg class="tooth" viewBox="0 0 100 130" aria-hidden="true">
+            <defs>
+              <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+                <stop id="g1" offset="0" stop-color="#E6D2AC"/>
+                <stop id="g2" offset=".72" stop-color="#EEDFC0"/>
+                <stop offset="1" stop-color="#F6F4EE" stop-opacity=".8"/>
+              </linearGradient>
+            </defs>
+            <path d="M18 14 C30 2 70 2 82 14 C92 24 90 60 84 92 C80 114 70 124 50 124 C30 124 20 114 16 92 C10 60 8 24 18 14 Z" fill="url(#g)" stroke="rgba(0,0,0,.18)" stroke-width="1.5"/>
+            <path d="M30 22 C34 40 34 70 30 96" stroke="#fff" stroke-opacity=".55" stroke-width="5" fill="none" stroke-linecap="round"/>
+          </svg>
+          <div>
+            <div class="shade-name" id="shade-name">A3</div>
+            <div class="shade-desc" id="shade-title">Guía de color VITA classical</div>
+            <div class="shade-desc" id="shade-family">Marrón rojizo</div>
+          </div>
+        </div>
+        <div class="tabs" id="tabs" role="group" aria-label="Elegir tono"></div>
+        <small class="solo-clinica">Toca un tono y se añade a tu orden de trabajo. En pantalla es orientativo: el color se comprueba con la guía física.</small>
+        <small class="solo-paciente">Los dientes de una prótesis se eligen entre estos 16 tonos para que no se note. Tu dentista elige el tuyo y nosotros lo reproducimos.</small>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="trabajos">
+    <div class="wrap">
+      <h2>Qué fabricamos</h2>
+      <p class="lead">Todo sale de nuestro laboratorio, hecho a medida a partir del modelo de cada paciente.</p>
+      <div class="works">
+        <div class="work"><h3>Prótesis completas de resina</h3><span class="for">Clínicas</span><p>Dentadura completa superior o inferior, con montaje de dientes y encía caracterizada para que parezca natural.</p></div>
+        <div class="work"><h3>Prótesis parciales de resina</h3><span class="for">Clínicas</span><p>Para reponer varias piezas cuando quedan dientes propios. Ligeras y fáciles de poner y quitar.</p></div>
+        <div class="work"><h3>Férula Michigan</h3><span class="for">Clínicas</span><p>Férula rígida de descarga para bruxismo y problemas de ATM, ajustada a la mordida de cada paciente.</p></div>
+        <div class="work"><h3>Férulas de contención</h3><span class="for">Clínicas</span><p>Retenedores transparentes para mantener los dientes en su sitio después de la ortodoncia.</p></div>
+        <div class="work"><h3>Protectores deportivos</h3><span class="for">Clínicas y deportistas</span><p>A medida para boxeo, artes marciales, rugby o hockey. Protegen mucho más que los de farmacia y dejan respirar y hablar.</p></div>
+        <div class="work"><h3>Reparaciones y rebases</h3><span class="for">Clínicas y pacientes</span><p>Dentaduras partidas, dientes que se han soltado o prótesis que ya no ajustan a la encía.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="solo-clinica" id="orden">
+    <div class="wrap">
+      <h2>Orden de trabajo por WhatsApp</h2>
+      <p class="lead">Rellena lo que tengas, marca las piezas y el color, y envíala. Nos llega ordenada y te respondemos con el plazo y la recogida.</p>
+      <div class="order">
+        <form class="form" id="form" novalidate>
+          <div class="row2">
+            <label>Clínica<input id="f-clinica" autocomplete="organization" placeholder="Nombre de la clínica"></label>
+            <label>Doctor o doctora<input id="f-dr" placeholder="Quién prescribe"></label>
+          </div>
+          <div class="row2">
+            <label>Referencia del paciente<input id="f-ref" placeholder="Iniciales o n.º de historia"></label>
+            <label>Tipo de trabajo
+              <select id="f-tipo">
+                <option>Prótesis completa de resina</option>
+                <option>Prótesis parcial de resina</option>
+                <option>Férula Michigan</option>
+                <option>Férula de contención</option>
+                <option>Protector deportivo</option>
+                <option>Reparación o compostura</option>
+                <option>Rebase</option>
+                <option>Otro</option>
+              </select>
+            </label>
+          </div>
+          <div>
+            <div class="odo-head"><b>Piezas</b>
+              <div class="quick">
+                <button type="button" data-q="up">Arcada superior</button>
+                <button type="button" data-q="down">Arcada inferior</button>
+                <button type="button" data-q="none">Quitar todo</button>
+              </div>
+            </div>
+            <div class="odo" role="group" aria-label="Odontograma: toca las piezas">
+              <div class="arch up" id="arch-up"></div>
+              <div class="mid"></div>
+              <div class="arch down" id="arch-down"></div>
+            </div>
+          </div>
+          <div class="row2">
+            <label>Color<select id="f-color"></select></label>
+            <label>Fecha deseada de prueba o entrega<input type="date" id="f-fecha"></label>
+          </div>
+          <label>Observaciones<textarea id="f-obs" placeholder="Material, tipo de ganchos, si va con modelo o impresión…"></textarea></label>
+        </form>
+
+        <aside class="ticket" aria-live="polite">
+          <h3>Resumen de la orden</h3>
+          <dl>
+            <dt>Clínica</dt><dd id="t-clinica">Sin indicar</dd>
+            <dt>Paciente</dt><dd id="t-ref">Sin indicar</dd>
+            <dt>Trabajo</dt><dd id="t-tipo"></dd>
+            <dt>Piezas</dt><dd id="t-piezas">Ninguna marcada</dd>
+            <dt>Color</dt><dd id="t-color"></dd>
+            <dt>Fecha</dt><dd id="t-fecha">Sin fecha</dd>
+          </dl>
+          <button class="btn wax" type="button" id="send-order">Enviar orden por WhatsApp</button>
+          <p class="warn" id="warn"></p>
+          <small>Se abre WhatsApp con el mensaje escrito. Puedes adjuntar fotos o el escaneo antes de enviarlo.</small>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="solo-paciente" id="ayuda">
+    <div class="wrap">
+      <h2>¿Qué le pasa a tu dentadura?</h2>
+      <p class="lead">Elige lo que se parece a tu caso y te decimos qué hacer hasta que la veamos.</p>
+      <div class="help">
+        <div class="probs" id="probs" role="group" aria-label="Problemas">
+          <button type="button" data-p="partida" aria-pressed="false">Se ha partido</button>
+          <button type="button" data-p="diente" aria-pressed="false">Se ha soltado un diente</button>
+          <button type="button" data-p="floja" aria-pressed="false">Me baila o se me cae</button>
+          <button type="button" data-p="nueva" aria-pressed="false">Necesito una nueva</button>
+        </div>
+        <div class="answer" id="answer" aria-live="polite">
+          <p class="empty">Toca una opción de la izquierda.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="laboratorio">
+    <div class="wrap about">
+      <div>
+        <h2>Un oficio de precisión</h2>
+        <p class="lead">Carlos Javier Mellado lleva más de 35 años fabricando prótesis dentales en Almería para clínicas, profesionales y particulares.</p>
+        <p style="margin-top:1rem">Una prótesis bien hecha no se nota: encaja, deja masticar y hablar, y tiene el color de los dientes de al lado. Por eso cada trabajo se hace a mano sobre el modelo del paciente, y seguimos formándonos en las técnicas y materiales que van saliendo.</p>
+      </div>
+      <div class="facts">
+        <div class="fact"><b>Más de 35 años</b><span>de experiencia en prótesis dental</span></div>
+        <div class="fact"><b>Trato directo</b><span>hablas con quien hace tu trabajo, sin intermediarios</span></div>
+        <div class="fact"><b>Formación continua</b><span>cursos de actualización en técnicas y materiales nuevos</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="wrap">
+      <h2>Dónde estamos</h2>
+      <p class="lead">Avenida Federico García Lorca, 43, 6.º D. 04004 Almería.</p>
+      <div class="contact">
+        <div class="ccard"><h3>Teléfono</h3><p><a href="tel:+34950233005">950 23 30 05</a></p><p><a href="tel:+34616404608">616 40 46 08</a></p></div>
+        <div class="ccard"><h3>WhatsApp y correo</h3><p><a href="https://wa.me/34616404608" target="_blank" rel="noopener">Escribir por WhatsApp</a></p><p><a href="mailto:ochodeocho@hotmail.es">ochodeocho@hotmail.es</a></p></div>
+        <div class="ccard"><h3>Cómo llegar</h3><p>Estamos en un sexto piso: llama al portero, 6.º D.</p><p><a href="https://www.google.com/maps/search/?api=1&query=Avenida+Federico+Garc%C3%ADa+Lorca+43+04004+Almer%C3%ADa" target="_blank" rel="noopener">Abrir en Google Maps</a></p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Laboratorio dental Carlos Javier Mellado Ramos. Avenida Federico García Lorca, 43, 6.º D, Almería. <a href="#">Aviso legal</a>, <a href="#">Privacidad</a>, <a href="#">Cookies</a>.</div>
+</footer>
+
+<nav class="mbar" aria-label="Contacto rápido">
+  <a class="btn ghost" href="tel:+34950233005">Llamar</a>
+  <a class="btn wax" href="https://wa.me/34616404608" target="_blank" rel="noopener">WhatsApp</a>
+</nav>
+
+<script>
+const WA = "34616404608";
+const shades = [
+  ["A1","#F3E9D2","Marrón rojizo"],["A2","#EEDFC0","Marrón rojizo"],["A3","#E6D2AC","Marrón rojizo"],["A3,5","#DEC59A","Marrón rojizo"],
+  ["A4","#D2B588","Marrón rojizo"],["B1","#F4EDDA","Amarillo rojizo"],["B2","#EDE2C2","Amarillo rojizo"],["B3","#E2D0A4","Amarillo rojizo"],
+  ["B4","#D9C38F","Amarillo rojizo"],["C1","#E6DFCB","Gris"],["C2","#DCD2B8","Gris"],["C3","#CEC3A5","Gris"],
+  ["C4","#BDAE8E","Gris"],["D2","#E5DBC6","Gris rojizo"],["D3","#DACDB1","Gris rojizo"],["D4","#D3C6A6","Gris rojizo"]
+];
+const $ = id => document.getElementById(id);
+
+/* Público */
+document.querySelectorAll(".aud button").forEach(b => b.addEventListener("click", () => {
+  document.body.dataset.aud = b.dataset.aud;
+  document.querySelectorAll(".aud button").forEach(x => x.setAttribute("aria-pressed", x === b));
+  try { localStorage.setItem("mellado-aud", b.dataset.aud); } catch(e){}
+}));
+try { const s = localStorage.getItem("mellado-aud"); if (s) document.querySelector(`.aud button[data-aud="${s}"]`)?.click(); } catch(e){}
+
+/* Guía de color */
+const tabs = $("tabs"), colorSel = $("f-color");
+let shade = "A3";
+const noColor = document.createElement("option"); noColor.value = ""; noColor.textContent = "Sin color (férulas, protectores)";
+colorSel.append(noColor);
+shades.forEach(([code, hex]) => {
+  const b = document.createElement("button");
+  b.type = "button"; b.className = "tab"; b.dataset.code = code;
+  b.innerHTML = `<i style="background:${hex}"></i>${code}`;
+  b.addEventListener("click", () => setShade(code));
+  tabs.append(b);
+  const o = document.createElement("option"); o.value = code; o.textContent = code; colorSel.append(o);
+});
+function setShade(code){
+  shade = code;
+  const s = shades.find(x => x[0] === code);
+  if (s){
+    $("shade-name").textContent = s[0];
+    $("shade-family").textContent = s[2];
+    $("g1").setAttribute("stop-color", s[1]);
+    $("g2").setAttribute("stop-color", s[1]);
+  }
+  tabs.querySelectorAll(".tab").forEach(t => t.setAttribute("aria-pressed", t.dataset.code === code));
+  colorSel.value = code;
+  update();
+}
+colorSel.addEventListener("change", () => colorSel.value ? setShade(colorSel.value) : (tabs.querySelectorAll(".tab").forEach(t => t.setAttribute("aria-pressed", false)), update()));
+
+/* Odontograma (numeración FDI) */
+const up = [18,17,16,15,14,13,12,11,21,22,23,24,25,26,27,28];
+const down = [48,47,46,45,44,43,42,41,31,32,33,34,35,36,37,38];
+const picked = new Set();
+function buildArch(el, list){
+  list.forEach(n => {
+    const b = document.createElement("button");
+    b.type = "button"; b.textContent = n; b.dataset.t = n;
+    b.setAttribute("aria-pressed", "false"); b.setAttribute("aria-label", "Pieza " + n);
+    b.addEventListener("click", () => { picked.has(n) ? picked.delete(n) : picked.add(n); paint(); });
+    el.append(b);
+  });
+}
+buildArch($("arch-up"), up); buildArch($("arch-down"), down);
+function paint(){
+  document.querySelectorAll(".arch button").forEach(b => b.setAttribute("aria-pressed", picked.has(+b.dataset.t)));
+  update();
+}
+document.querySelectorAll(".quick button").forEach(b => b.addEventListener("click", () => {
+  if (b.dataset.q === "none") picked.clear();
+  else (b.dataset.q === "up" ? up : down).forEach(n => picked.add(n));
+  paint();
+}));
+
+/* Resumen */
+function piezasTxt(){
+  if (!picked.size) return "";
+  const has = l => l.every(n => picked.has(n));
+  const parts = [];
+  const rest = [...picked];
+  if (has(up)) parts.push("arcada superior completa");
+  if (has(down)) parts.push("arcada inferior completa");
+  const sueltas = rest.filter(n => !(has(up) && up.includes(n)) && !(has(down) && down.includes(n))).sort((a,b)=>a-b);
+  if (sueltas.length) parts.push(sueltas.join(", "));
+  return parts.join(" + ");
+}
+function fechaTxt(){
+  const v = $("f-fecha").value; if (!v) return "";
+  const [y,m,d] = v.split("-"); return `${d}/${m}/${y}`;
+}
+function update(){
+  $("t-clinica").textContent = [$("f-clinica").value.trim(), $("f-dr").value.trim()].filter(Boolean).join(", ") || "Sin indicar";
+  $("t-ref").textContent = $("f-ref").value.trim() || "Sin indicar";
+  $("t-tipo").textContent = $("f-tipo").value;
+  $("t-piezas").textContent = piezasTxt() || "Ninguna marcada";
+  $("t-color").textContent = colorSel.value || "Sin color";
+  $("t-fecha").textContent = fechaTxt() || "Sin fecha";
+  $("warn").textContent = "";
+}
+["f-clinica","f-dr","f-ref","f-tipo","f-fecha","f-obs"].forEach(id => $(id).addEventListener("input", update));
+$("send-order").addEventListener("click", () => {
+  if (!$("f-clinica").value.trim()){ $("warn").textContent = "Escribe el nombre de la clínica para que sepamos de quién es la orden."; $("f-clinica").focus(); return; }
+  const lines = [
+    "Orden de trabajo",
+    "Clínica: " + $("f-clinica").value.trim() + ($("f-dr").value.trim() ? " (" + $("f-dr").value.trim() + ")" : ""),
+    "Paciente: " + ($("f-ref").value.trim() || "sin referencia"),
+    "Trabajo: " + $("f-tipo").value,
+    "Piezas: " + (piezasTxt() || "sin marcar"),
+    "Color: " + (colorSel.value || "sin color"),
+    "Fecha deseada: " + (fechaTxt() || "a convenir")
+  ];
+  if ($("f-obs").value.trim()) lines.push("Observaciones: " + $("f-obs").value.trim());
+  window.open("https://wa.me/" + WA + "?text=" + encodeURIComponent(lines.join("\n")), "_blank", "noopener");
+});
+setShade("A3");
+
+/* Ayuda para pacientes */
+const answers = {
+  partida: {t:"Se ha partido", steps:[
+    "No la pegues con pegamento de casa. Se mete en la grieta, contamina la resina y el arreglo queda peor.",
+    "Guarda todos los trozos, aunque sean pequeños, en una bolsa o un pañuelo.",
+    "No la uses partida: puede hacer heridas en la encía.",
+    "Escríbenos o llámanos y te decimos cuándo traerla. Si se puede, se repara sin hacerla nueva."],
+    msg:"Hola, se me ha partido la dentadura. ¿Cuándo puedo llevarla para arreglarla?"},
+  diente: {t:"Se ha soltado un diente", steps:[
+    "Guarda el diente: muchas veces se puede volver a colocar el mismo.",
+    "No lo pegues tú: si queda mal puesto, la mordida cambia y hace daño.",
+    "Tráenos la dentadura y el diente juntos."],
+    msg:"Hola, se me ha soltado un diente de la dentadura. ¿Cuándo puedo llevarla?"},
+  floja: {t:"Me baila o se me cae", steps:[
+    "Es normal con los años: la encía cambia de forma y la dentadura deja de ajustar.",
+    "Casi siempre se soluciona con un rebase, que es rellenar la base para que vuelva a ajustar.",
+    "Tu dentista toma el registro de la encía y nosotros hacemos el rebase en el laboratorio. Si no tienes dentista, pregúntanos."],
+    msg:"Hola, la dentadura me queda floja. ¿Me podéis orientar sobre un rebase?"},
+  nueva: {t:"Necesito una nueva", steps:[
+    "Las prótesis nuevas se hacen con la prescripción de tu dentista, que toma las medidas de tu boca.",
+    "Dile a tu dentista que quieres trabajar con nosotros, o cuéntanos quién es y nos coordinamos con su clínica.",
+    "Elegimos juntos forma y color de los dientes para que la dentadura no se note."],
+    msg:"Hola, necesito una dentadura nueva. ¿Cómo lo hacemos con mi dentista?"}
+};
+document.querySelectorAll("#probs button").forEach(b => b.addEventListener("click", () => {
+  document.querySelectorAll("#probs button").forEach(x => x.setAttribute("aria-pressed", x === b));
+  const a = answers[b.dataset.p];
+  $("answer").innerHTML = `<h3>${a.t}</h3><ol>${a.steps.map(s => `<li>${s}</li>`).join("")}</ol>
+    <a class="btn wax" target="_blank" rel="noopener" href="https://wa.me/${WA}?text=${encodeURIComponent(a.msg)}">Contárnoslo por WhatsApp</a>`;
+}));
+</script>
+</body>
+</html>
